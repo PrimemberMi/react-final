@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import WebMenu from './components/Menu';
+import { Layout } from 'antd';
 import WebHeader from './components/Header';
+import AniListFetcher from './components/AnimeList';
 
+const { Content } = Layout;
 
 function App() {
   const onClick = e => {
@@ -11,10 +13,11 @@ function App() {
   return (
     <div>
       <WebHeader />
-      <WebMenu />
+      <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+          <AniListFetcher /> {/* 這裡就是調用 AniList API 的元件 */}
+      </div>
     </div>
   );
 }
-
 
 export default App;
