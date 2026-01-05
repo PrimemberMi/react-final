@@ -15,16 +15,17 @@ function LatestSeasonList() {
             body: JSON.stringify({
                 query: `
                 {
-                    Page(page: 1, perPage: 20) {
+                    Page(page: 1, perPage: 24) {
                         media(
                             ${searchTerm ? `search: "${searchTerm}"` : ''}
                             type: ANIME
+                            seasonYear : 2025
+                            
                         ) {
                             id
                             title {
                                 native
                             }
-                            description
                             season
                             coverImage { large }
                         }
