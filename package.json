@@ -2,8 +2,9 @@
   "name": "react-final",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
+ "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "serve": "netlify functions:serve"
   },
   "dependencies": {
