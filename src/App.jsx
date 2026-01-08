@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout } from 'antd';
 import WebHeader from './components/Header';
-import AniListFetcher from './components/AnimeList';
+import AniList from './components/AnimeList';
 
 const { Content } = Layout;
 
@@ -14,7 +14,7 @@ function App() {
     <div>
       <WebHeader />
       <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-          <AniListFetcher /> {/* 這裡就是調用 AniList API 的元件 */}
+          <AniList /> {/* 這裡就是調用 AniList API 的元件 */}
       </div>
     </div>
   );
