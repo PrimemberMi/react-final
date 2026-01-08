@@ -23,6 +23,16 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
     ));
   };
 
+  const handleLike = (animeId) => {
+    fetch("/.netlify/functions/anime-ids", {
+      method: 'POST',
+      body: JSON.stringify({ id: animeId, action: "ADD" })
+    }).then(() => alert("已收藏 ID: " + animeId));
+  };
+  
+  // 按钮调用
+  <Button onClick={() => handleLike(selectedAnime.id)}>喜欢</Button>
+
   // 查找官网链接
   const officialSite = selectedAnime.externalLinks?.find((l) => l.site === 'Official Site');
 
@@ -64,42 +74,28 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
           </div>
         </div>
 
-        {/* 3. 状态按钮区 (绝对定位) */}
-        <div style={{ position: 'absolute', top: '160px', right: '40px', zIndex: 10 }}>
-          <Space size="middle">
-            <Button
-              size="large"
-              icon={<HeartOutlined />}
+       {/* 状态按钮区 */}
+       <div style={{ position: 'absolute', top: '150px', right: '30px', zIndex: 10 }}>
+          <Space>
+            <Button 
+              size="large" icon={<HeartOutlined />} 
               type={animeStatus[selectedAnime.id] === 'WANT' ? 'primary' : 'default'}
               danger={animeStatus[selectedAnime.id] === 'WANT'}
               onClick={() => handleStatusClick(selectedAnime.id, 'WANT')}
-              style={{ borderRadius: '8px', width: '100px' }}
-            >
-              想看
-            </Button>
-            <Button
-              size="large"
-              icon={<PlayCircleOutlined />}
+            >想看</Button>
+            <Button 
+              size="large" icon={<PlayCircleOutlined />} 
               type={animeStatus[selectedAnime.id] === 'WATCHING' ? 'primary' : 'default'}
-              danger={animeStatus[selectedAnime.id] === 'WATCHING'}
               onClick={() => handleStatusClick(selectedAnime.id, 'WATCHING')}
-              style={{ borderRadius: '8px', width: '100px' }}
-            >
-              在看
-            </Button>
-            <Button
-              size="large"
-              icon={<CheckCircleOutlined />}
+            >在看</Button>
+            <Button 
+              size="large" icon={<CheckCircleOutlined />} 
               type={animeStatus[selectedAnime.id] === 'DONE' ? 'primary' : 'default'}
-              danger={animeStatus[selectedAnime.id] === 'DONE'}
               onClick={() => handleStatusClick(selectedAnime.id, 'DONE')}
-              style={{ borderRadius: '8px', width: '100px' }}
-            >
-              已看
-            </Button>
+            >已看</Button>
           </Space>
         </div>
-
+        
         {/* 4. 核心内容区 */}
         <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: '-100px', padding: '0 40px 40px', position: 'relative', zIndex: 3 }}>
           

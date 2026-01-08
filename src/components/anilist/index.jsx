@@ -18,6 +18,7 @@ function AniList() {
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [animeStatus, setAnimeStatus] = useState({});
 
+    
     useEffect(() => { setCurrentPage(1); }, [searchTerm, year, season, sortOrder]);
 
     useEffect(() => {
@@ -65,12 +66,34 @@ function AniList() {
         .catch(() => setLoading(false));
     };
 
-    const handleStatusClick = (animeId, status) => {
-        setAnimeStatus(prev => ({
-            ...prev,
-            [animeId]: prev[animeId] === status ? null : status
-        }));
-    };
+    // src/components/anilist/index.jsx 里的函数
+
+const handleStatusClick = async (animeId, status) => {
+    alert("点击成功！正在发送 ID: " + animeId);
+    // 1. 立即更新前端 UI (让按钮变色，给用户反馈)
+    setAnimeStatus(prev => ({
+        ...prev,
+        [animeId]: prev[animeId] === status ? null : status
+    }));
+
+    // 2. 【核心步骤】同步到后台记录 ID
+    try {
+        const response = await fetch("/.netlify/functions/anime-library", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                id: animeId, 
+                status: status 
+            })
+        });
+        
+        const result = await response.json();
+        console.log("后台记忆确认:", result);
+    } catch (err) {
+        console.error("后台没记下这个 ID:", err);
+    }
+};
+
 
     const years = [];
     for (let i = 2026; i >= 1970; i--) years.push(i);
@@ -108,7 +131,7 @@ function AniList() {
                 onCancel={() => setIsModalOpen(false)} 
                 selectedAnime={selectedAnime} 
                 animeStatus={animeStatus} 
-                handleStatusClick={handleStatusClick} 
+                handleStatusClick={handleStatusClick}
             />
         </div>
     );
