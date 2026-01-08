@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SiteHeader from './components/Header';
 import VisitorCounter from './components/VisitorCounter';
-import AniList from './components/AnimeList';
+import AniList from './components/anilist';
 
 // 准备两个简单的页面组件
 const HomePage = () => <AniList />;
