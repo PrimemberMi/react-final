@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const VisitorCounter = () => {
-  const [num, setNum] = useState("加载中...");
+  const [num, setNum] = useState("...");
 
   useEffect(() => {
     fetch("/.netlify/functions/visitor")
