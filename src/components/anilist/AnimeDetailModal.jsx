@@ -82,20 +82,20 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
               type={animeStatus[selectedAnime.id] === 'WANT' ? 'primary' : 'default'}
               danger={animeStatus[selectedAnime.id] === 'WANT'}
               onClick={() => handleStatusClick(selectedAnime.id, 'WANT')}
-            >想看</Button>
+            >視聴予定</Button>
             <Button 
               size="large" icon={<PlayCircleOutlined />} 
               type={animeStatus[selectedAnime.id] === 'WATCHING' ? 'primary' : 'default'}
               onClick={() => handleStatusClick(selectedAnime.id, 'WATCHING')}
-            >在看</Button>
+            >視聴中</Button>
             <Button 
               size="large" icon={<CheckCircleOutlined />} 
               type={animeStatus[selectedAnime.id] === 'DONE' ? 'primary' : 'default'}
               onClick={() => handleStatusClick(selectedAnime.id, 'DONE')}
-            >已看</Button>
+            >視聴済み</Button>
           </Space>
         </div>
-        
+
         {/* 4. 核心内容区 */}
         <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: '-100px', padding: '0 40px 40px', position: 'relative', zIndex: 3 }}>
           

@@ -17,11 +17,6 @@ const SiteHeader = () => {
       icon: <UnorderedListOutlined />,
       label:  <Link to="/my">我的</Link>
     },
-    {
-      key: 'settings',
-      icon: <SettingOutlined />,
-      label: <Link to="/settings">设定</Link>, // 确保这里的 Link 路径正确
-    },
   ];
 
   return (

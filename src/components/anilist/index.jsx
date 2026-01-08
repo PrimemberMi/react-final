@@ -69,7 +69,6 @@ function AniList() {
     // src/components/anilist/index.jsx 里的函数
 
 const handleStatusClick = async (animeId, status) => {
-    alert("点击成功！正在发送 ID: " + animeId);
     // 1. 立即更新前端 UI (让按钮变色，给用户反馈)
     setAnimeStatus(prev => ({
         ...prev,
