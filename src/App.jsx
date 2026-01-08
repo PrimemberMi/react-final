@@ -10,15 +10,16 @@ function App() {
     fetch("/.netlify/functions/visitor")
       .then((res) => res.json())
       .then((data) => {
-        // 确保拿到的是数字
-        setNum(data.count);
+        // 检查 data 里面有没有 count 这个属性
+        if (data && typeof data.count !== 'undefined') {
+          setNum(data.count);
+        }
       })
       .catch((err) => {
-        console.error("无法连接后端:", err);
-        setNum("连接失败");
+        console.error("前端获取失败:", err);
+        setNum("N/A");
       });
   }, []);
-
   return (
     <div style={{ fontFamily: 'sans-serif' }}>
       <WebHeader />
