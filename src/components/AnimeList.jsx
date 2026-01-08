@@ -255,7 +255,7 @@ function AniList() {
                                                     </div>
                                                 </>
                                             )}
-                                            <div style={{ marginTop: '60px', textAlign: 'center', opacity: 0.4, fontSize: '10px' }}>
+                                            <div style={{ marginTop: '20px', textAlign: 'center', opacity: 0.4, fontSize: '10px' }}>
                                         © {selectedAnime.title.native} | Images & Data via AniList API
                                     </div>
                                         </div>
