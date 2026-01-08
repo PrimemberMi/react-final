@@ -22,24 +22,11 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
     ));
   };
 
-  const handleLike = (animeId) => {
-    fetch("/.netlify/functions/anime-ids", {
-      method: 'POST',
-      body: JSON.stringify({ id: animeId, action: "ADD" })
-    }).then(() => alert("已收藏 ID: " + animeId));
-  };
-  
-  // 按钮调用
-  <Button onClick={() => handleLike(selectedAnime.id)}>喜欢</Button>
-
-  // 查找官网链接
   const officialSite = selectedAnime.externalLinks?.find((l) => l.site === 'Official Site');
 
   return (
     <Modal open={open} onCancel={onCancel} footer={null} width={1200} centered getContainer={false}>
       <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden' }}>
-        
-        {/* 1. 背景 Banner */}
         <div
           style={{
             height: '320px',
@@ -48,7 +35,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
             position: 'relative',
           }}
         >
-          {/* 渐变遮罩 */}
           <div
             style={{
               position: 'absolute',
@@ -58,7 +44,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
           />
         </div>
 
-        {/* 2. 标题区 (叠加在 Banner 上) */}
         <div style={{ position: 'absolute', top: '140px', left: '50px', right: '40px', zIndex: 2 }}>
           <Title
             level={1}
@@ -73,7 +58,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
           </div>
         </div>
 
-       {/* 状态按钮区 */}
        <div style={{ position: 'absolute', top: '150px', right: '30px', zIndex: 10 }}>
           <Space>
             <Button 
@@ -95,10 +79,7 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
           </Space>
         </div>
 
-        {/* 4. 核心内容区 */}
         <div style={{ display: 'flex', alignItems: 'flex-start', marginTop: '-100px', padding: '0 40px 40px', position: 'relative', zIndex: 3 }}>
-          
-          {/* 左侧：封面与标签 */}
           <div style={{ flex: '0 0 360px' }}>
             <img
               src={selectedAnime.coverImage.extraLarge}
@@ -119,7 +100,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
             </div>
           </div>
 
-          {/* 右侧：滚动详情框 */}
           <div
             style={{
               flex: '1 1 auto',
@@ -134,8 +114,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
             }}
           >
             <div style={{ overflowY: 'auto', padding: '35px', height: '100%' }}>
-              
-              {/* 基本元数据 */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '30px' }}>
                 <div>
                   <Text strong style={{ color: '#1890ff', fontSize: '11px', display: 'block' }}>FORMAT</Text>
@@ -157,7 +135,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
 
               <Divider />
 
-              {/* 角色与声优 */}
               <Text strong style={{ color: '#1890ff', fontSize: '11px', display: 'block', marginBottom: '18px' }}>
                 CHARACTERS & CV
               </Text>
@@ -198,7 +175,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
 
               <Divider />
 
-              {/* 制作团队与工作室 */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
                 <div>
                   <Text strong style={{ color: '#1890ff', fontSize: '11px', display: 'block', marginBottom: '10px' }}>
@@ -219,7 +195,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
                     ))}
                   </div>
 
-                  {/* 只有当存在官网时才显示链接区块 */}
                   {officialSite && (
                     <div style={{ marginTop: '15px' }}>
                       <Text strong style={{ color: '#1890ff', fontSize: '11px', display: 'block', marginBottom: '5px' }}>
@@ -240,7 +215,6 @@ const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleSt
                 </div>
               </div>
 
-              {/* 页脚版权 */}
               <div style={{ marginTop: '20px', textAlign: 'center', opacity: 0.4, fontSize: '10px' }}>
                 © {selectedAnime.title.native} | Images via AniList API
               </div>

@@ -45,12 +45,12 @@ const SiteHeader = () => {
         mode="horizontal"
         items={items}
         style={{
-          flex: 1,            // 占据剩余所有空间
+          flex: 1,           
           minWidth: 0,
           background: 'transparent',
           borderBottom: 'none',
-          display: 'flex',     // 确保 Menu 内部也是 flex
-          justifyContent: 'flex-end', // 核心代码：让菜单项全部靠右
+          display: 'flex',     
+          justifyContent: 'flex-end', 
         }}
       />
     </Header>

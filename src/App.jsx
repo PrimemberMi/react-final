@@ -7,7 +7,7 @@ import MyLibrary from './components/MyLibrary';
 
 const HomePage = () => <AniList />;
 const SettingsPage = () => <div style={{ padding: '20px' }}>这是设置页面</div>;
-const MyPage = () => <MyLibrary />; // 修正闭合标签
+const MyPage = () => <MyLibrary />; 
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <SiteHeader />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/my" element={<MyPage />} /> {/* 修正路由写法 */}
+          <Route path="/my" element={<MyPage />} /> 
           <Route path="/settings" element={<SettingsPage />} />
         </Routes>
         <VisitorCounter />
