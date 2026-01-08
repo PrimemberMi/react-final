@@ -33,9 +33,9 @@ function LatestSeasonList() {
                 query: `
                 query ($search: String, $sort: [MediaSort]) {
                     Page(page: 1, perPage: 24) {
-                        media(search: $search, type: ANIME, sort: $sort) {
+                        media(search: $search, type: ANIME, sort: $sort,) {
                             id
-                            title { native, english, romaji }
+                            title { native }
                             coverImage { extraLarge, large }
                             averageScore
                             description
@@ -145,6 +145,7 @@ function LatestSeasonList() {
                 onCancel={() => setIsModalOpen(false)}
                 footer={null}
                 width={1000}
+                getContainer={false}
                 centered
                 bodyStyle={{ padding: 0, borderRadius: '12px', overflow: 'hidden' }}
             >
