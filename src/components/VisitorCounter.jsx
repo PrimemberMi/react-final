@@ -12,18 +12,19 @@ const VisitorCounter = () => {
         }
       })
       .catch((err) => {
-        console.error("err:", err);
         setNum("N/A");
       });
   }, []);
 
   return (
     <div style={{ 
-      padding: '10px 20px', 
+      width: '100%',
+      padding: '20px 0', 
       background: '#fffbe6', 
-      borderBottom: '1px solid #ffe58f',
+      borderTop: '1px solid #ffe58f',
       textAlign: 'center',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      marginTop: 'auto'
     }}>
        訪問数：<span style={{ color: '#faad14', fontSize: '20px' }}>{num}</span> 人
     </div>

@@ -6,19 +6,26 @@ import AniList from './components/anilist';
 import MyLibrary from './components/MyLibrary';
 
 const HomePage = () => <AniList />;
-const SettingsPage = () => <div style={{ padding: '20px' }}>这是设置页面</div>;
-const MyPage = () => <MyLibrary />; 
+const MyPage = () => <MyLibrary />;
 
 function App() {
   return (
     <Router>
-      <div style={{ fontFamily: 'sans-serif' }}>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        minHeight: '100vh',
+        fontFamily: 'sans-serif' 
+      }}>
         <SiteHeader />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/my" element={<MyPage />} /> 
-          <Route path="/settings" element={<SettingsPage />} />
-        </Routes>
+        
+        <div style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/my" element={<MyPage />} />
+          </Routes>
+        </div>
+
         <VisitorCounter />
       </div>
     </Router>
