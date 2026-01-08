@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "serve": "netlify functions:serve"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +16,15 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.1",
+    "netlify-cli": "^23.13.3",
     "vite": "^7.2.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrimemberMi/react-final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PrimemberMi/react-final/issues"
+  },
+  "homepage": "https://github.com/PrimemberMi/react-final#readme"
 }
