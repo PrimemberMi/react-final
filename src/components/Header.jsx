@@ -1,69 +1,64 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import { HomeOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const { Header } = Layout;
 
 const SiteHeader = () => {
-  // 定义菜单项
   const items = [
     {
       key: 'home',
       icon: <HomeOutlined />,
-      label: <a href="/home">home</a>,
+      label: <Link to="/">首页</Link>, 
     },
     {
-      key: 'year-list',
+      key: 'my-list',
       icon: <UnorderedListOutlined />,
-      label: '年度',
-  
-      children: [
-        { key: '2025-new', label: '2025' },
-        { key: 'latest', label: '最新连载' },
-        { key: 'classic', label: '经典老番' },
-      ],
+      label:  <Link to="/my">我的</Link>
     },
     {
       key: 'settings',
       icon: <SettingOutlined />,
-      label: <a href="/settings">設定</a>,
+      label: <Link to="/settings">设定</Link>, // 确保这里的 Link 路径正确
     },
   ];
 
   return (
     <Header style={{ 
       display: 'flex',
-      alignItems: 'center', // 垂直居中
+      alignItems: 'center',
       background: '#001529',
-      padding: '20px',
+      padding: '0 20px', 
+      height: '64px',    
       position: 'sticky',
       top: 0,
       zIndex: 10,
     }}>
-      {/* 网站标题 */}
       <div style={{ 
         color: 'white', 
-        fontSize: '40px', 
+        fontSize: '24px', 
         fontWeight: 'bold', 
-        marginRight: '0px', // 标题与菜单的间距
+        marginRight: '40px', 
         whiteSpace: 'nowrap' 
       }}>
-        アニメガイドサイト
+        アニメガイド
       </div>
       
-      {/* 导航菜单 */}
       <Menu
         theme="dark"
         mode="horizontal"
         items={items}
         style={{
-          flex: 1,
+          flex: 1,            // 占据剩余所有空间
           minWidth: 0,
-          borderBottom: 'none', // 去掉底部白线
+          background: 'transparent',
+          borderBottom: 'none',
+          display: 'flex',     // 确保 Menu 内部也是 flex
+          justifyContent: 'flex-end', // 核心代码：让菜单项全部靠右
         }}
       />
     </Header>
   );
-};
-
+}
 export default SiteHeader;
