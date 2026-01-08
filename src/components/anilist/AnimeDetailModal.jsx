@@ -7,7 +7,6 @@ const { Title, Text } = Typography;
 const AnimeDetailModal = ({ open, onCancel, selectedAnime, animeStatus, handleStatusClick }) => {
   if (!selectedAnime) return null;
 
-  // 辅助函数：渲染制作人员行
   const renderStaffRows = (edges, keywords, label) => {
     const names = [
       ...new Set(

@@ -10,12 +10,12 @@ const SiteHeader = () => {
     {
       key: 'home',
       icon: <HomeOutlined />,
-      label: <Link to="/">首页</Link>, 
+      label: <Link to="/">home</Link>, 
     },
     {
       key: 'my-list',
       icon: <UnorderedListOutlined />,
-      label:  <Link to="/my">我的</Link>
+      label:  <Link to="/my">Mylibrary</Link>
     },
   ];
 
